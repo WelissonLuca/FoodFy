@@ -1,13 +1,20 @@
-const express = require('express')
-const nunjucks = require('nunjucks')
-/* Server */
-const server = express()
 
-const recipeData = require('./data')
+const express = require("express");
+const nunjucks = require("nunjucks");
+const routes = require("./routes");
+const methodOverride = require("method-override");
+
+const server = express();
+
+
+
+
 
 server.use(express.urlencoded({ extended: true }))
-server.use(express.static('public'))
 server.set("view engine", "njk")
+server.use(express.static('public'))
+server.use(methodOverride("_method"));
+server.use(routes);
 
 nunjucks.configure('views',{
     express: server,
@@ -16,48 +23,8 @@ nunjucks.configure('views',{
     
 })
 
-/* Routers */
-server.get("/",(req,res) => {
-    
-    const data = {
-        title:"",
-        description:"",
-        image:""
-}
-
-    return res.render("home",{ items: recipeData})
-} )
-
-server.get("/about",(req,res) => {       
-    return res.render("about")
-} )
-
-server.get("/recipes",(req,res) => {
-    return res.render("recipes",{ items: recipeData})
-} )
-
-/* server.get('/recipes/:id',function(req,res){
-    const id = req.params.id
-    
-    
-    const recipes = recipe[id]
-      if (!recipes){
-        return res.status(404).render('not-found')
-      }
-    return res.render('description',{ items:recipe })
-  }) */
 
 
-  server.get("/recipes/:index", function (req, res) {
-    const recipes = [...recipeData]; // Array de receitas carregadas do data.js
-    const recipeIndex = req.params.index;
-    
-    const recipe = recipes[recipeIndex]
-
-    
-    return res.render("description", {item: recipe})
-    
-  })
 server.use((req, res) => {
     res.status(404).render("not-found");
   });

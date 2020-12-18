@@ -1,0 +1,76 @@
+form{
+    min-height: 71vh;
+}
+.infos .button{
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+.infos .button:hover{
+    background: #3222aa;
+    
+}
+.infos .button.red:hover{
+    background: #d12020;
+}
+form,form .inputs{
+    display: flex;
+    flex-direction: column;
+}
+.inputs{
+    margin-bottom: 30px;
+    
+}
+.inputs span{
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+}
+.inputs input{
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 16px;
+    color: var(--primary-color);
+}
+.inputs input::placeholder{
+    font-size: 16px;
+    color: var(--primary-color);
+}
+.inputs a{
+    font-size: 16px;
+    font-weight: bold;
+    color: #6558C3;
+    cursor: pointer;
+    margin-top: 16px;
+}
+.inputs a:hover{
+    color: #3222aa;
+}
+.inputs textarea{
+    height: 300px;
+    padding: 12px;
+    font-size: 16px;
+    color: var(--primary-color);
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    overflow: hidden;
+    resize: none;
+    outline: none;
+}
+
+#ingredients,#preparations {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+#ingredients input, #preparations input{
+    margin-bottom: 10px;
+}
+

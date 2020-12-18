@@ -1,0 +1,70 @@
+{% extends "admin/layout.njk" %}
+
+{% block headtitle %}
+    <title>{{item.title}}
+        - Foodfy</title>
+{% endblock %}
+
+{% block headstyle %}
+    <link rel="stylesheet" href="/css/admin/show.css">
+{% endblock %}
+
+{% block content %}
+
+    <section class="container recipe-content">
+        <div class="infos">
+            <h2 class="title">Receita: {{item.title}}</h2>
+            <a href="/admin/edit/{{item.id}}" class="button">Editar receita</a>
+        </div>
+        <div class="recipe-details">
+            <img src="{{item.image}}" alt="Imagem de {{item.title}}">
+
+            <h2 class="title">{{item.title}}</h2>
+            <span>{{item.author}}</span>
+
+            <div class="details">
+                <div class="row">
+                    <h2 class="title">Ingredientes</h2>
+                    <a class="hide">ESCONDER</a>
+                </div>
+                <div class="details-content">
+                    <ul class="ingredients">
+                        {% for item in item.ingredient%}
+                            <li>{{item}}</li>
+                        {% endfor %}
+                    </ul> 
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="row">
+                    <h2 class="title">Modo de prepraro</h2>
+                    <a class="hide">ESCONDER</a>
+                
+                    </div>
+                
+                
+
+                <div class="details-content">
+                    <ul class="preparation">
+                        {% for item in item.preparation%}
+                            <li>{{item}}</li>
+                        {% endfor %}
+                    </ul> 
+                    </div>
+            </div>
+
+            <div class="details">
+                <div class="row">
+                    <h2 class="title">Informaçoes adicionais</h2>
+                    <a class="hide">ESCONDER</a>
+                </div>
+                <div class="details-content">
+                    <p>{{item.information}}</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

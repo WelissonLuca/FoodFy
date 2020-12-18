@@ -1,14 +1,22 @@
+.recipe-content{
+    margin: 40px auto;
+}
+
+.infos .button:hover{
+    background: #3222aa;
+}
 .recipe-details{
     display: flex;
     flex-direction: column;
     align-items: center;
     
+    
 }
 .recipe-details img{
-    border-radius: 15px;
-    max-width: 940px;
+    width: 100%;
     max-height: 280px;
     margin-bottom: 40px;
+    border-radius: 15px;
 }
 .recipe-details .title{
     font-size: 36px;
@@ -44,7 +52,7 @@
 .details .hide:hover{
     color: #777777;
 }
-.details .ingredients li{
+.details .ingredients li,.details .preparation li{
     list-style: disc;
     margin-left: 22px;
     font-size: 18px;

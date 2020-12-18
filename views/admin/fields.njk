@@ -1,0 +1,87 @@
+
+        </div>
+            <div class="inputs">
+            <span>Nome da receita</span>
+            <input 
+            type="text" 
+            name="title" 
+            value="{{item.title}}"
+            >
+        </div>
+        
+        <div class="inputs">
+            <span>Imagem da receita</span>
+            <input 
+            type="url" 
+            name="image" 
+            placeholder="HTTP://"
+            value="{{item.image}}"
+            >
+            
+        </div>
+
+        <div class="inputs">
+            <span>Ingredientes</span>
+            <div id="ingredients">
+              {% if not item.ingredient %}
+                <input 
+                type="name" 
+                name="ingredient[]" 
+                value=""
+                >
+
+                 {% else %}
+                {% for item in item.ingredient %} 
+                <input 
+                type="name" 
+                name="ingredient[]" 
+                value="{{item}}"
+                >
+                {% endfor %}   
+              {% endif %} 
+                
+
+            
+        </div>
+        <a class="add-ingredient">Adicionar novo Ingrediente</a>
+        </div>
+
+
+        <div class="inputs">
+            <span>Modo de preparo</span>
+            <div id="preparations">
+                {% if not item.preparation %}
+                
+                <input 
+                type="name" 
+                name="preparation[]" 
+                value="{{item}}"
+                >
+                {% else %}
+                
+                {% for item in item.preparation %}
+                <input 
+                type="name" 
+                name="preparation[]" 
+                value="{{item}}"
+                >
+                {% endfor %}
+                {% endif %}
+               
+        
+        </div>
+            <a class="add-preparation">Adicionar novo passo</a>
+        </div>
+
+
+        <div class="inputs">
+            <span>Informações adicionais</span>
+            <textarea
+            type="text" 
+            name="information" 
+            >{{item.information}}</textarea>
+        </div>
+
+        
+        
+        </form>
