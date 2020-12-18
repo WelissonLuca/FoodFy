@@ -89,34 +89,35 @@ exports.post = (req, res) => {
 
 exports.put = (req, res) => {
   
-  const { id } = req.body
-  let index = 0
+const {id} = req.body;
 
-  const foundRecipes = data.recipes.find((recipe,foundindex) => {
-  if(!id == recipe.id) {
-  index = foundindex
-  return true
-}
-  });
+let index = 0;
+const foundRecipe = data.recipes.find((recipe, Foundindex) => {
+    if (id == recipe.id) {
+        index = Foundindex;
+        return true;
+    }
+});
 
-  if(!foundRecipes) return res.status('404');
+if (!foundRecipe) return res.send("Receita não encontrada");
 
+const recipe = {
+    ...foundRecipe,
+    ...req.body,
+    id: Number(req.body.id)
+};
 
+data.recipes[index] = recipe;
 
-  const recipe = {
-  ...foundRecipes,
-  ...req.body
-  };
+fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+    if (err) return res.send("Write error");
 
-  data.recipes[index] = recipe;
-  fs.writeFile("data.json", JSON.stringify(data, null , 2),(err) => {
-    if (err) return res.send("Write file error !")
-    const id = foundRecipes.id
-    return res.redirect(`/admin/show/${id}`)
-  });
+    return res.redirect(`/admin/show/${id}`);
+});
   
 
 };
+
 
 
 exports.delete = (req, res) => {

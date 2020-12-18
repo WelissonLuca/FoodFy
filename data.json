@@ -2,8 +2,8 @@
   "recipes": [
     {
       "id": 1,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/pizza.png",
-      "title": "Pizza 4 estações",
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
+      "title": "Triplo bacon burger",
       "author": "Jorge Relato",
       "ingredient": [
         "1 xícara (chá) de leite",
